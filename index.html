@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lucas Fernandes Nunes — Data Analyst</title>
+<meta name="description" content="Data Analyst and BI Analyst. Power BI, SQL, Python. Toyota, Bosch. Based in Lisbon from February 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Single column, hairline-ruled sections; mono for dates and figures. */
+:root{
+  --bg:#fbfbfc; --surface:#ffffff; --fg:#161a1f; --muted:#5d6670;
+  --rule:#dfe3e8; --accent:#0a6e75; --accent-soft:#e7f2f2;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  --body:"Source Sans 3",system-ui,-apple-system,Segoe UI,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#101316; --surface:#171b1f; --fg:#e8eaed; --muted:#9aa4ae;
+    --rule:#2a3036; --accent:#4fc9c9; --accent-soft:#16302f; color-scheme:dark; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-text-size-adjust:100%}
+.wrap{max-width:62rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 4rem}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--sans);text-wrap:balance;margin:0}
+
+/* toolbar */
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+.bar-in{max-width:62rem;margin:0 auto;display:flex;gap:.5rem;align-items:center;justify-content:flex-end;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:.55rem}
+.btn{font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.02em;color:var(--muted);
+  background:transparent;border:1px solid var(--rule);border-radius:2px;padding:.35rem .7rem;cursor:pointer}
+.btn:hover{color:var(--fg);border-color:var(--muted)}
+.btn[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.lang{display:flex;gap:0;margin-right:auto}
+.lang .btn:first-child{border-radius:2px 0 0 2px}
+.lang .btn:last-child{border-radius:0 2px 2px 0;border-left:0}
+
+/* header */
+header{padding-block:2.75rem 1.5rem}
+h1{font-size:clamp(2rem,6vw,2.9rem);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.role{font-family:var(--sans);font-size:1.05rem;font-weight:600;color:var(--accent);margin-top:.3rem}
+.where{color:var(--muted);margin-top:.6rem;font-size:.95rem}
+.contact{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;padding:0;margin:.9rem 0 0;font-family:var(--mono);font-size:.82rem}
+.contact li{min-width:0}
+.contact a{text-decoration:none;border-bottom:1px solid var(--rule)}
+.contact a:hover{border-color:var(--accent)}
+
+/* impact strip */
+.impact{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);
+  border-block:1px solid var(--rule);margin-top:1.75rem}
+.impact div{background:var(--bg);padding:.9rem 1rem}
+.impact b{display:block;font-family:var(--mono);font-size:1.45rem;font-weight:500;color:var(--accent);font-variant-numeric:tabular-nums}
+.impact span{display:block;font-size:.82rem;color:var(--muted);line-height:1.35;margin-top:.15rem}
+@media (max-width:560px){.impact{grid-template-columns:1fr}}
+
+/* sections */
+section{padding-block:1.9rem 0}
+h2{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  padding-bottom:.5rem;border-bottom:1px solid var(--rule);margin-bottom:1.1rem}
+p.summary{margin:0;max-width:62ch}
+
+.entry{padding-block:0 1.3rem;break-inside:avoid}
+.entry-head{display:flex;flex-wrap:wrap;gap:.15rem 1rem;align-items:baseline;justify-content:space-between}
+h3{font-size:1.02rem;font-weight:600;min-width:0}
+.when{font-family:var(--mono);font-size:.8rem;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.org{font-size:.92rem;color:var(--muted);margin-top:.1rem}
+ul.pts{margin:.6rem 0 0;padding-left:1.05rem}
+ul.pts li{margin-bottom:.32rem;max-width:68ch}
+ul.pts li::marker{color:var(--accent)}
+
+dl.skills{margin:0;display:grid;grid-template-columns:minmax(10rem,auto) 1fr;gap:.45rem 1.5rem}
+dl.skills dt{font-family:var(--sans);font-weight:600;font-size:.93rem}
+dl.skills dd{margin:0;color:var(--muted);min-width:0}
+@media (max-width:560px){dl.skills{grid-template-columns:1fr;gap:.1rem}dl.skills dd{margin-bottom:.55rem}}
+
+ul.plain{list-style:none;margin:0;padding:0}
+ul.plain li{padding-block:.45rem;border-bottom:1px solid var(--rule);max-width:72ch}
+ul.plain li:last-child{border-bottom:0}
+ul.plain em{font-style:normal;color:var(--muted);font-size:.88rem;display:block}
+
+footer{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--rule);color:var(--muted);font-size:.8rem;font-family:var(--mono)}
+
+@media print{
+  :root{--bg:#fff;--fg:#000;--muted:#333;--rule:#bbb;--accent:#0a5f66;--accent-soft:#fff}
+  .bar,footer{display:none}
+  body{font-size:10.5pt;line-height:1.4}
+  .wrap{max-width:none;padding:0}
+  header{padding-block:0 .6rem}
+  h1{font-size:22pt}
+  section{padding-block:.9rem 0}
+  .entry{padding-bottom:.7rem}
+  .impact{margin-top:.8rem}
+  a{text-decoration:none}
+  @page{margin:14mm}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <div class="lang" role="group" aria-label="Language">
+      <button class="btn" id="btn-en" type="button" aria-pressed="true" onclick="setLang('en')">EN</button>
+      <button class="btn" id="btn-pt" type="button" aria-pressed="false" onclick="setLang('pt')">PT</button>
+    </div>
+    <button class="btn" type="button" onclick="window.print()" data-en="Save PDF" data-pt="Salvar PDF">Save PDF</button>
+  </div>
+</div>
+
+<div class="wrap">
+<header>
+  <h1>Lucas Fernandes Nunes</h1>
+  <div class="role" data-en="Data Analyst · BI Analyst" data-pt="Analista de Dados · Analista de BI">Data Analyst · BI Analyst</div>
+  <div class="where" data-en="Based in Lisbon, Portugal from February 2027 · EU citizen, no visa required" data-pt="Residente em Lisboa, Portugal, a partir de fevereiro de 2027 · Cidadão da UE, sem necessidade de visto">Based in Lisbon, Portugal from February 2027 · EU citizen, no visa required</div>
+  <ul class="contact">
+    <li><a href="mailto:lucasnunes100f@gmail.com">lucasnunes100f@gmail.com</a></li>
+    <li><a href="tel:+5515996253888">+55 15 99625-3888</a></li>
+    <li><a href="https://www.linkedin.com/in/lucasfernandesnunes">linkedin.com/in/lucasfernandesnunes</a></li>
+    <li><a href="https://github.com/lucasnunesf">github.com/lucasnunesf</a></li>
+    <li><a href="https://lucasnunesf.notion.site/Lucas-Nunes-Data-BI-Analyst-3de917c89c178092885cf639b619767b" data-en="Portfolio" data-pt="Portfólio">Portfolio</a></li>
+  </ul>
+
+  <div class="impact">
+    <div><b>&gt;95%</b><span data-en="faster purchasing process at Toyota" data-pt="mais rápido no processo de compras da Toyota">faster purchasing process at Toyota</span></div>
+    <div><b>60%</b><span data-en="less material lookup time at AC Metais" data-pt="menos tempo de busca de materiais na AC Metais">less material lookup time at AC Metais</span></div>
+    <div><b>163</b><span data-en="supplier files consolidated into one dashboard" data-pt="arquivos de fornecedores consolidados em um dashboard">supplier files consolidated into one dashboard</span></div>
+  </div>
+</header>
+
+<section>
+  <h2 data-en="Professional summary" data-pt="Resumo profissional">Professional summary</h2>
+  <p class="summary" data-en="Data Analyst with 3+ years of experience combining a BI Analyst role and data internships at Toyota and Bosch. Builds Power BI dashboards and Python and SQL automations on top of ERP and legacy data, with results including a 60% reduction in material lookup time, 15% less scrap and a 3-6 hour purchasing process cut to under 5 minutes. Holds the Microsoft Power BI Data Analyst Professional Certificate, covering DAX, star schema data modeling and PL-300 exam preparation. Mechanical Engineering graduate and EU citizen, with native Portuguese and professional English." data-pt="Analista de Dados com mais de 3 anos de experiência somando um cargo de Analista de BI e estágios em dados na Toyota e na Bosch. Desenvolve dashboards em Power BI e automações em Python e SQL sobre dados de ERP e de sistemas legados, com resultados como 60% menos tempo de busca de materiais, 15% menos refugo e um processo de compras de 3 a 6 horas reduzido para menos de 5 minutos. Possui o Professional Certificate Microsoft Power BI Data Analyst, que cobre DAX, modelagem star schema e preparação para o exame PL-300. Formado em Engenharia Mecânica e cidadão da UE, com português nativo e inglês profissional.">Data Analyst with 3+ years of experience combining a BI Analyst role and data internships at Toyota and Bosch. Builds Power BI dashboards and Python and SQL automations on top of ERP and legacy data, with results including a 60% reduction in material lookup time, 15% less scrap and a 3-6 hour purchasing process cut to under 5 minutes. Holds the Microsoft Power BI Data Analyst Professional Certificate, covering DAX, star schema data modeling and PL-300 exam preparation. Mechanical Engineering graduate and EU citizen, with native Portuguese and professional English.</p>
+</section>
+
+<section>
+  <h2 data-en="Technical skills" data-pt="Competências técnicas">Technical skills</h2>
+  <dl class="skills">
+    <dt data-en="BI &amp; Analytics" data-pt="BI e Analytics">BI &amp; Analytics</dt>
+    <dd>Power BI, DAX, Power Query, Data Modeling (Star Schema), Microsoft Excel, Data Visualization</dd>
+    <dt data-en="Languages" data-pt="Linguagens">Languages</dt>
+    <dd>SQL, Python, VBA, C++</dd>
+    <dt data-en="Data preparation" data-pt="Preparação de dados">Data preparation</dt>
+    <dd data-en="ETL, Data Integration, Process Automation, Data Governance, ERP Data Migration" data-pt="ETL, integração de dados, automação de processos, governança de dados, migração de dados de ERP">ETL, Data Integration, Process Automation, Data Governance, ERP Data Migration</dd>
+    <dt data-en="Databases" data-pt="Bancos de dados">Databases</dt>
+    <dd>PostgreSQL, Microsoft SQL Server, MySQL</dd>
+    <dt data-en="Business systems" data-pt="Sistemas corporativos">Business systems</dt>
+    <dd>SAP ERP, Salesforce, OutSystems</dd>
+    <dt data-en="Cloud &amp; tools" data-pt="Cloud e ferramentas">Cloud &amp; tools</dt>
+    <dd>Microsoft Azure, Git, GitHub</dd>
+  </dl>
+</section>
+
+<section>
+  <h2 data-en="Professional experience" data-pt="Experiência profissional">Professional experience</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3 data-en="Data &amp; BI Intern (Purchasing)" data-pt="Estágio em Dados e BI (Compras)">Data &amp; BI Intern (Purchasing)</h3>
+      <span class="when" data-en="Feb 2025 — Present" data-pt="Fev 2025 — Atual">Feb 2025 — Present</span>
+    </div>
+    <div class="org">Toyota do Brasil · Sorocaba, Brazil</div>
+    <ul class="pts">
+      <li data-en="Automated PR/PO creation in SAP ERP with Python and VBA, reducing purchasing processing time from 3-6 hours to under 5 minutes." data-pt="Automatizou a criação de requisições e pedidos de compra no SAP ERP com Python e VBA, reduzindo o tempo de processamento de 3 a 6 horas para menos de 5 minutos.">Automated PR/PO creation in SAP ERP with Python and VBA, reducing purchasing processing time from 3-6 hours to under 5 minutes.</li>
+      <li data-en="Consolidated 163 supplier files into a cost reduction dashboard, replacing days of monthly manual work with a single refresh." data-pt="Consolidou 163 arquivos de fornecedores em um dashboard de redução de custos, substituindo dias de trabalho manual mensal por uma única atualização.">Consolidated 163 supplier files into a cost reduction dashboard, replacing days of monthly manual work with a single refresh.</li>
+      <li data-en="Replaced a 30-spreadsheet reporting routine with one Power BI view." data-pt="Substituiu uma rotina de relatórios com 30 planilhas por uma única visão em Power BI.">Replaced a 30-spreadsheet reporting routine with one Power BI view.</li>
+      <li data-en="Delivered weekly executive Power BI dashboards tracking Engineering Change (ECI) design modifications, fed by Python and SQL extractions from the legacy SIQ system." data-pt="Entregou dashboards executivos semanais em Power BI para acompanhar alterações de projeto (ECI), alimentados por extrações em Python e SQL do sistema legado SIQ.">Delivered weekly executive Power BI dashboards tracking Engineering Change (ECI) design modifications, fed by Python and SQL extractions from the legacy SIQ system.</li>
+      <li data-en="Standardized databases and data workflows for the TOIOS-to-SAP ERP migration across the TLAC region (Brazil and Argentina)." data-pt="Padronizou bases e fluxos de dados na migração de ERP do TOIOS para o SAP na região TLAC (Brasil e Argentina).">Standardized databases and data workflows for the TOIOS-to-SAP ERP migration across the TLAC region (Brazil and Argentina).</li>
+      <li data-en="Aligned global purchasing data and procedures with teams in Japan and Thailand, working fully in English." data-pt="Alinhou dados e procedimentos globais de compras com equipes do Japão e da Tailândia, trabalhando integralmente em inglês.">Aligned global purchasing data and procedures with teams in Japan and Thailand, working fully in English.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3 data-en="Project Management Intern" data-pt="Estágio em Gestão de Projetos">Project Management Intern</h3>
+      <span class="when" data-en="Oct 2023 — Jan 2025" data-pt="Out 2023 — Jan 2025">Oct 2023 — Jan 2025</span>
+    </div>
+    <div class="org">Bosch do Brasil · Sorocaba, Brazil</div>
+    <ul class="pts">
+      <li data-en="Managed quotation-to-SOP project lifecycles for Mercedes-Benz product lines (Accelo and LO Farm), tracking milestones in SAP ERP with cross-functional teams." data-pt="Conduziu o ciclo de projetos da cotação ao SOP para as linhas Mercedes-Benz (Accelo e LO Farm), acompanhando marcos no SAP ERP com equipes multidisciplinares.">Managed quotation-to-SOP project lifecycles for Mercedes-Benz product lines (Accelo and LO Farm), tracking milestones in SAP ERP with cross-functional teams.</li>
+      <li data-en="Built Power BI dashboards for real-time prototype stock visibility, automating data ingestion with Python email-parsing scripts." data-pt="Construiu dashboards em Power BI para visibilidade do estoque de protótipos em tempo real, automatizando a ingestão de dados com scripts em Python que leem e-mails.">Built Power BI dashboards for real-time prototype stock visibility, automating data ingestion with Python email-parsing scripts.</li>
+      <li data-en="Coordinated requirements and deliverables in English with international partners, including US teams on autonomous technology initiatives." data-pt="Coordenou requisitos e entregas em inglês com parceiros internacionais, incluindo equipes dos Estados Unidos em iniciativas de tecnologia autônoma.">Coordinated requirements and deliverables in English with international partners, including US teams on autonomous technology initiatives.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3 data-en="BI Analyst" data-pt="Analista de BI">BI Analyst</h3>
+      <span class="when" data-en="Oct 2022 — Oct 2023" data-pt="Out 2022 — Out 2023">Oct 2022 — Oct 2023</span>
+    </div>
+    <div class="org">AC Metais do Brasil · Sorocaba, Brazil</div>
+    <ul class="pts">
+      <li data-en="Built Power BI dashboards integrated with the Kiron ERP, reducing sheet metal lookup time by 60% and scrap by 15%." data-pt="Construiu dashboards em Power BI integrados ao ERP Kiron, reduzindo em 60% o tempo de busca de chapas e em 15% o refugo.">Built Power BI dashboards integrated with the Kiron ERP, reducing sheet metal lookup time by 60% and scrap by 15%.</li>
+      <li data-en="Structured raw material data ingestion with the Production Planning and Control (PPC) team to track daily output, yield rates and inventory movements." data-pt="Estruturou a ingestão de dados de matéria-prima junto ao PCP para acompanhar produção diária, rendimento e movimentações de estoque.">Structured raw material data ingestion with the Production Planning and Control (PPC) team to track daily output, yield rates and inventory movements.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2 data-en="Education" data-pt="Formação">Education</h2>
+  <div class="entry">
+    <div class="entry-head">
+      <h3 data-en="Bachelor's Degree in Mechanical Engineering" data-pt="Bacharelado em Engenharia Mecânica">Bachelor's Degree in Mechanical Engineering</h3>
+      <span class="when">2022 — 2026</span>
+    </div>
+    <div class="org">FACENS · Sorocaba, Brazil</div>
+  </div>
+  <div class="entry">
+    <div class="entry-head">
+      <h3 data-en="Technical Degree in Business Intelligence and Administration" data-pt="Técnico em Business Intelligence e Administração">Technical Degree in Business Intelligence and Administration</h3>
+      <span class="when">2020 — 2022</span>
+    </div>
+    <div class="org">ETEC · Tatuí, Brazil</div>
+  </div>
+</section>
+
+<section>
+  <h2 data-en="Certificates &amp; training" data-pt="Certificados e formação complementar">Certificates &amp; training</h2>
+  <ul class="plain">
+    <li>Microsoft Power BI Data Analyst — Professional Certificate, Microsoft via Coursera (2026)
+      <em data-en="8 courses covering Power Query ETL, star schema data modeling, DAX and PL-300 exam preparation" data-pt="8 cursos cobrindo ETL com Power Query, modelagem star schema, DAX e preparação para o exame PL-300">8 courses covering Power Query ETL, star schema data modeling, DAX and PL-300 exam preparation</em></li>
+    <li>IBM Data Engineering — Professional Certificate, IBM via Coursera (2026)</li>
+    <li>Microsoft Azure Data Fundamentals (DP-900) Exam Prep — Specialization, Microsoft via Coursera</li>
+    <li>English Certificate, CEFR B2 — EF Education First</li>
+  </ul>
+</section>
+
+<section>
+  <h2 data-en="Engineering projects &amp; leadership" data-pt="Projetos de engenharia e liderança">Engineering projects &amp; leadership</h2>
+  <div class="entry">
+    <div class="entry-head">
+      <h3>Omegabotz Combat Robotics Team, FACENS</h3>
+      <span class="when" data-en="Jan 2023 — Aug 2025" data-pt="Jan 2023 — Ago 2025">Jan 2023 — Aug 2025</span>
+    </div>
+    <ul class="pts">
+      <li data-en="Led design and assembly of combat robots, programming microcontroller and motor control logic in C++ and analyzing real-time telemetry data; won 2nd place at an international championship in Greece." data-pt="Liderou o projeto e a montagem de robôs de combate, programando a lógica de microcontrolador e de controle de motores em C++ e analisando telemetria em tempo real; 2º lugar em um campeonato internacional na Grécia.">Led design and assembly of combat robots, programming microcontroller and motor control logic in C++ and analyzing real-time telemetry data; won 2nd place at an international championship in Greece.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="entry-head">
+      <h3>SAE Formula/Baja Team, FACENS</h3>
+      <span class="when" data-en="Aug 2024 — Aug 2025" data-pt="Ago 2024 — Ago 2025">Aug 2024 — Aug 2025</span>
+    </div>
+    <ul class="pts">
+      <li data-en="Developed electronic data acquisition routines and analyzed real-time sensor data to optimize vehicle handling and prevent component failure." data-pt="Desenvolveu rotinas de aquisição eletrônica de dados e analisou dados de sensores em tempo real para otimizar o comportamento do veículo e evitar falhas de componentes.">Developed electronic data acquisition routines and analyzed real-time sensor data to optimize vehicle handling and prevent component failure.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="entry-head">
+      <h3>Falcons Aerodesign Team, FACENS</h3>
+      <span class="when" data-en="Jan 2026 — Present" data-pt="Jan 2026 — Atual">Jan 2026 — Present</span>
+    </div>
+    <ul class="pts">
+      <li data-en="Coordinates schedules, deliverables and technical documentation across automation and electrical sub-teams, ensuring telemetry sensor integration." data-pt="Coordena cronogramas, entregas e documentação técnica entre os subgrupos de automação e elétrica, garantindo a integração dos sensores de telemetria.">Coordinates schedules, deliverables and technical documentation across automation and electrical sub-teams, ensuring telemetry sensor integration.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2 data-en="Languages" data-pt="Idiomas">Languages</h2>
+  <ul class="plain">
+    <li data-en="Portuguese — Native" data-pt="Português — Nativo">Portuguese — Native</li>
+    <li data-en="English — Professional working proficiency (CEFR B2)" data-pt="Inglês — Proficiência profissional (CEFR B2)">English — Professional working proficiency (CEFR B2)</li>
+  </ul>
+</section>
+
+<footer data-en="Last updated October 2026" data-pt="Atualizado em outubro de 2026">Last updated October 2026</footer>
+</div>
+
+<script>
+function setLang(lang){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-' + lang + ']').forEach(function(el){
+    var v = el.dataset[lang];
+    if (v !== undefined) el.innerHTML = v;
+  });
+  document.getElementById('btn-en').setAttribute('aria-pressed', String(lang === 'en'));
+  document.getElementById('btn-pt').setAttribute('aria-pressed', String(lang === 'pt'));
+  try { localStorage.setItem('cv-lang', lang); } catch (e) {}
+}
+try {
+  var saved = localStorage.getItem('cv-lang');
+  if (saved === 'pt') setLang('pt');
+} catch (e) {}
+</script>
+</body>
+</html>
