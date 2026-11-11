@@ -144,17 +144,17 @@ footer{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--rule);color
   <h2 data-en="Technical skills" data-pt="Competências técnicas">Technical skills</h2>
   <dl class="skills">
     <dt data-en="BI &amp; Analytics" data-pt="BI e Analytics">BI &amp; Analytics</dt>
-    <dd>Power BI, DAX, Power Query, Data Modeling (Star Schema), Microsoft Excel, Data Visualization</dd>
+    <dd>Power BI, DAX, Power Query, Data Modeling (Star Schema), Power BI Projects (PBIP/TMDL), Microsoft Excel, Data Visualization</dd>
     <dt data-en="Languages" data-pt="Linguagens">Languages</dt>
     <dd>SQL, Python (PySpark, pandas), VBA, C++</dd>
     <dt data-en="Data engineering" data-pt="Engenharia de dados">Data engineering</dt>
-    <dd data-en="ETL/ELT, Data Pipelines, Incremental Ingestion, Lakehouse Architecture, Data Quality Testing (dbt), Orchestration (Apache Airflow), Data Governance, ERP Data Migration" data-pt="ETL/ELT, pipelines de dados, ingestão incremental, arquitetura lakehouse, testes de qualidade de dados (dbt), orquestração (Apache Airflow), governança de dados, migração de dados de ERP">ETL/ELT, Data Pipelines, Incremental Ingestion, Lakehouse Architecture, Data Quality Testing (dbt), Orchestration (Apache Airflow), Data Governance, ERP Data Migration</dd>
+    <dd data-en="ETL/ELT, Data Pipelines, Incremental Ingestion, Lakehouse Architecture (Medallion), Data Quality Testing (dbt, pytest), Infrastructure as Code (Terraform), Data Governance, ERP Data Migration" data-pt="ETL/ELT, pipelines de dados, ingestão incremental, arquitetura lakehouse (medalhão), testes de qualidade de dados (dbt, pytest), infraestrutura como código (Terraform), governança de dados, migração de dados de ERP">ETL/ELT, Data Pipelines, Incremental Ingestion, Lakehouse Architecture (Medallion), Data Quality Testing (dbt, pytest), Infrastructure as Code (Terraform), Data Governance, ERP Data Migration</dd>
     <dt data-en="Cloud &amp; big data" data-pt="Cloud e big data">Cloud &amp; big data</dt>
     <dd>Microsoft Fabric, Microsoft Azure, Azure Data Lake Storage Gen2, Delta Lake, dbt</dd>
     <dt data-en="Databases" data-pt="Bancos de dados">Databases</dt>
-    <dd>PostgreSQL, Microsoft SQL Server, MySQL, SQLite</dd>
+    <dd>PostgreSQL (PL/pgSQL), Microsoft SQL Server, MySQL, SQLite</dd>
     <dt data-en="Tools" data-pt="Ferramentas">Tools</dt>
-    <dd>Git, GitHub, GitHub Actions, Docker, VS Code</dd>
+    <dd>Git, GitHub, GitHub Actions (CI), Docker, Terraform, VS Code</dd>
     <dt data-en="Business systems" data-pt="Sistemas corporativos">Business systems</dt>
     <dd>SAP ERP, Kiron ERP, Salesforce, OutSystems</dd>
   </dl>
@@ -237,11 +237,34 @@ footer{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--rule);color
   <div class="entry">
     <div class="entry-head">
       <h3><a style="text-decoration:none" href="https://github.com/lucasnunesf/industrial-data-platform">Industrial Data Platform</a></h3>
-      <span class="when" data-en="In progress · MVP Dec 2026" data-pt="Em andamento · MVP dez 2026">In progress · MVP Dec 2026</span>
+      <span class="when" data-en="MVP completed · Nov 2026" data-pt="MVP concluído · nov 2026">MVP completed · Nov 2026</span>
     </div>
-    <div class="org">Microsoft Azure · Microsoft Fabric · PySpark · Delta Lake · dbt · Apache Airflow · PostgreSQL · Docker · Power BI</div>
+    <div class="org">Microsoft Azure · Microsoft Fabric · PySpark · Delta Lake · dbt · Terraform · PostgreSQL · Docker · Power BI</div>
     <ul class="pts">
-      <li data-en="End-to-end rebuild, with synthetic data, of the data platform I worked on at AC Metais. ERP and machine data is ingested incrementally into Azure Data Lake Storage Gen2, processed in Microsoft Fabric through bronze and silver layers with PySpark, modeled and tested with dbt in a Fabric Warehouse, and served to Power BI for lead time, bottleneck, OEE and margin analysis." data-pt="Recriação de ponta a ponta, com dados sintéticos, da plataforma de dados em que trabalhei na AC Metais. Dados de ERP e de máquinas são ingeridos de forma incremental no Azure Data Lake Storage Gen2, processados no Microsoft Fabric nas camadas bronze e silver com PySpark, modelados e testados com dbt em um Fabric Warehouse e servidos ao Power BI para análise de lead time, gargalos, OEE e margem.">End-to-end rebuild, with synthetic data, of the data platform I worked on at AC Metais. ERP and machine data is ingested incrementally into Azure Data Lake Storage Gen2, processed in Microsoft Fabric through bronze and silver layers with PySpark, modeled and tested with dbt in a Fabric Warehouse, and served to Power BI for lead time, bottleneck, OEE and margin analysis.</li>
+      <li data-en="End-to-end rebuild, with synthetic data, of the data platform I worked on at AC Metais. A Python plant simulator feeds a PostgreSQL ERP; changed rows are ingested incrementally into Azure Data Lake Storage Gen2, processed with PySpark in Microsoft Fabric (bronze and silver), modeled into a star schema with dbt and 101 automated data checks (gold), and served to Power BI for bottleneck, lead time and on-time delivery analysis. Infrastructure in Terraform. Next: streaming, Airflow and CI/CD." data-pt="Recriação de ponta a ponta, com dados sintéticos, da plataforma de dados em que trabalhei na AC Metais. Um simulador da fábrica em Python alimenta um ERP em PostgreSQL; as linhas alteradas são ingeridas de forma incremental no Azure Data Lake Storage Gen2, processadas com PySpark no Microsoft Fabric (bronze e silver), modeladas em star schema com dbt e 101 checagens automáticas de dados (gold) e servidas ao Power BI para análise de gargalos, lead time e entregas no prazo. Infraestrutura em Terraform. Próximos passos: streaming, Airflow e CI/CD.">End-to-end rebuild, with synthetic data, of the data platform I worked on at AC Metais. A Python plant simulator feeds a PostgreSQL ERP; changed rows are ingested incrementally into Azure Data Lake Storage Gen2, processed with PySpark in Microsoft Fabric (bronze and silver), modeled into a star schema with dbt and 101 automated data checks (gold), and served to Power BI for bottleneck, lead time and on-time delivery analysis. Infrastructure in Terraform. Next: streaming, Airflow and CI/CD.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="entry-head">
+      <h3><span data-en="BI &amp; Analytics dashboards" data-pt="Dashboards de BI e Analytics">BI &amp; Analytics dashboards</span></h3>
+      <span class="when">2026</span>
+    </div>
+    <div class="org">Power BI · DAX · Power Query · TMDL/PBIR · Python · pytest</div>
+    <div class="org"><a href="https://github.com/lucasnunesf/production-planning-dashboard">production-planning-dashboard</a> · <a href="https://github.com/lucasnunesf/sheet-metal-intake-dashboard">sheet-metal-intake-dashboard</a> · <a href="https://github.com/lucasnunesf/laser-remnant-inventory">laser-remnant-inventory</a></div>
+    <ul class="pts">
+      <li data-en="Production planning: capacity vs load by work center; welding found as the bottleneck, over 100% load in 7 weeks and up to 138%." data-pt="Planejamento da produção: capacidade vs carga por centro de trabalho; a solda aparece como gargalo, acima de 100% em 7 semanas e com pico de 138%.">Production planning: capacity vs load by work center; welding found as the bottleneck, over 100% load in 7 weeks and up to 138%.</li>
+      <li data-en="Sheet metal intake: supplier scorecard; the cheapest mill was 10-12% cheaper but on time only 64% of the time, against 95% for the best service center." data-pt="Recebimento de chapas: scorecard de fornecedores; a usina mais barata custava 10-12% menos, mas entregava no prazo só 64% das vezes, contra 95% do melhor distribuidor.">Sheet metal intake: supplier scorecard; the cheapest mill was 10-12% cheaper but on time only 64% of the time, against 95% for the best service center.</li>
+      <li data-en="Laser remnant inventory: stock, aging and reuse vs scrap of laser offcuts; with a control process, the reuse rate rose from 20.5% to 74.1%." data-pt="Inventário de retalhos do laser: estoque, idade e reaproveitamento vs sucata; com um processo de controle, o reaproveitamento subiu de 20,5% para 74,1%.">Laser remnant inventory: stock, aging and reuse vs scrap of laser offcuts; with a control process, the reuse rate rose from 20.5% to 74.1%.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="entry-head">
+      <h3><a style="text-decoration:none" href="https://github.com/lucasnunesf/prototype-inventory-sql" data-en="Prototype Parts Inventory (PostgreSQL)" data-pt="Inventário de Peças Protótipo (PostgreSQL)">Prototype Parts Inventory (PostgreSQL)</a></h3>
+      <span class="when">2026</span>
+    </div>
+    <div class="org">PostgreSQL · PL/pgSQL · SQL · Python · pytest · GitHub Actions</div>
+    <ul class="pts">
+      <li data-en="QR code part tracking with the business rules enforced inside the database: triggers, procedures for count closing, a reporting mart for Power BI, roles and row-level security, and window-function analysis queries. 31 SQL checks and 47 tests in CI." data-pt="Rastreamento de peças por QR code com as regras de negócio dentro do banco: triggers, procedures de fechamento de inventário, mart de relatórios para Power BI, roles e row-level security, e queries de análise com window functions. 31 checagens SQL e 47 testes em CI.">QR code part tracking with the business rules enforced inside the database: triggers, procedures for count closing, a reporting mart for Power BI, roles and row-level security, and window-function analysis queries. 31 SQL checks and 47 tests in CI.</li>
     </ul>
   </div>
   <div class="entry">
